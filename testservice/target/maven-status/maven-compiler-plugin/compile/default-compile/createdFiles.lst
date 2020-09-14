@@ -1,0 +1,8 @@
+edu/bigdata/training/testservice/service/TestBusinessLogicService.class
+edu/bigdata/training/testservice/dao/TestServiceRepository.class
+edu/bigdata/training/testservice/config/ServiceConf.class
+edu/bigdata/training/testservice/controller/TestServiceController.class
+edu/bigdata/training/testservice/config/IgniteConf.class
+edu/bigdata/training/testservice/controller/model/Person.class
+edu/bigdata/training/testservice/model/PersonEntity.class
+edu/bigdata/training/testservice/TestService.class

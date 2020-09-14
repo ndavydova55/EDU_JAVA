@@ -1,0 +1,8 @@
+/root/Desktop/testservice/src/main/java/edu/bigdata/training/testservice/model/PersonEntity.java
+/root/Desktop/testservice/src/main/java/edu/bigdata/training/testservice/config/IgniteConf.java
+/root/Desktop/testservice/src/main/java/edu/bigdata/training/testservice/controller/TestServiceController.java
+/root/Desktop/testservice/src/main/java/edu/bigdata/training/testservice/TestService.java
+/root/Desktop/testservice/src/main/java/edu/bigdata/training/testservice/config/ServiceConf.java
+/root/Desktop/testservice/src/main/java/edu/bigdata/training/testservice/controller/model/Person.java
+/root/Desktop/testservice/src/main/java/edu/bigdata/training/testservice/service/TestBusinessLogicService.java
+/root/Desktop/testservice/src/main/java/edu/bigdata/training/testservice/dao/TestServiceRepository.java
