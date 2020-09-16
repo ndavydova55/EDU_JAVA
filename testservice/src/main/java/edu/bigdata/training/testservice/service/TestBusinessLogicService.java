@@ -21,8 +21,19 @@ public class TestBusinessLogicService {
         return personEntity;
     }
 
+    public PersonEntity processUpdate(Person person, String id){
+        PersonEntity personEntity_curr = testServiceRepository.get(UUID.fromString(id));
+        personEntity_curr.setName(person.getName());
+        testServiceRepository.update(personEntity_curr, UUID.fromString(id));
+        return personEntity_curr;
+    }
+
     public PersonEntity processGet(String id){
         return testServiceRepository.get(UUID.fromString(id));
+    }
+
+    public void processDel(String id){
+        testServiceRepository.del(UUID.fromString(id));
     }
 
     public List<PersonEntity> processGetAll(){

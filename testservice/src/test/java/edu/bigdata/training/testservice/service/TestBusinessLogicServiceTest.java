@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
@@ -32,7 +33,7 @@ public class TestBusinessLogicServiceTest {
     private TestServiceRepository testServiceRepository;
 
     @Test
-    public void testCreateAndGet(){
+    public void testCreate(){
         //create
         Person person = new Person("test");
 
@@ -41,12 +42,46 @@ public class TestBusinessLogicServiceTest {
         Assert.assertEquals(person.getName(), personEntity.getName());
         Mockito.verify(testServiceRepository, Mockito.times(1)).save(personEntity);
 
-        //getAll
+    }
+    @Test
+    public void testGetAll(){
+
         List<PersonEntity> personEntityList = testBusinessLogicService.processGetAll();
 
         Assert.assertEquals("name1", personEntityList.get(0).getName());
         Assert.assertEquals("name2", personEntityList.get(1).getName());
         Mockito.verify(testServiceRepository, Mockito.times(1)).getAll();
+    }
+    @Test
+    public void testGet(){
+
+        PersonEntity personEntityList = testBusinessLogicService.processGet(UUID.randomUUID().toString());
+
+        Assert.assertEquals("name", personEntityList.getName());
+        Mockito.verify(testServiceRepository, Mockito.times(1)).get(any());
+
+    }
+
+    @Test
+    public void testUpdate(){
+        Person person = new Person("test");
+        Person person_upd = new Person("test_upd");
+
+        PersonEntity personEntity = testBusinessLogicService.processCreate(person);
+
+        PersonEntity personEntity_upd =testBusinessLogicService.processUpdate(person_upd, personEntity.getId().toString());
+
+        Assert.assertEquals(person_upd.getName(), personEntity_upd.getName());
+        Mockito.verify(testServiceRepository, Mockito.times(1)).update(personEntity_upd,personEntity.getId());
+
+    }
+
+    @Test
+    public void testDelete(){
+        Person person = new Person("test_del");
+        PersonEntity personEntity = testBusinessLogicService.processCreate(person);
+        testBusinessLogicService.processDel(personEntity.getId().toString());
+        Mockito.verify(testServiceRepository, Mockito.times(1)).del(personEntity.getId());
 
     }
 
