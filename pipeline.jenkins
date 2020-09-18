@@ -23,7 +23,6 @@ pipeline {
                             string(credentialsId: 'secret_password', variable: 'PASSWORD'),
                         ]
                     ) {
-						sh "chmod 744 ./build.sh"
                         sh "./build.sh $REPO $USERNAME $PASSWORD"
                     }
             }
