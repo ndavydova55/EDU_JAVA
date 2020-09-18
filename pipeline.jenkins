@@ -23,6 +23,8 @@ pipeline {
                             string(credentialsId: 'secret_password', variable: 'PASSWORD'),
                         ]
                     ) {
+					    sh "ls -la"
+						sh "whoami"
                         sh "./build.sh $REPO $USERNAME $PASSWORD"
                     }
             }
