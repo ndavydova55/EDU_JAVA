@@ -27,6 +27,7 @@ pipeline {
 						sh "whoami"
 						sh "pwd"
 						sh "env"
+						sh "chmod 744 ./build.sh"
                         sh "./build.sh $REPO $USERNAME $PASSWORD"
                     }
             }
