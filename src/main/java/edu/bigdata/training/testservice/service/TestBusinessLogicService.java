@@ -22,10 +22,9 @@ public class TestBusinessLogicService {
     }
 
     public PersonEntity processUpdate(Person person, String id){
-        PersonEntity personEntity_curr = testServiceRepository.get(UUID.fromString(id));
-        personEntity_curr.setName(person.getName());
-        testServiceRepository.update(personEntity_curr, UUID.fromString(id));
-        return personEntity_curr;
+        testServiceRepository.get(UUID.fromString(id)).setName(person.getName());
+        testServiceRepository.update(testServiceRepository.get(UUID.fromString(id)), UUID.fromString(id));
+        return testServiceRepository.get(UUID.fromString(id));
     }
 
     public PersonEntity processGet(String id){
