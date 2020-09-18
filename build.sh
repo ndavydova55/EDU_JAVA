@@ -1,4 +1,3 @@
-#!/bin/bash
 mvn clean
 mvn package
 docker build --tag "$1" .
