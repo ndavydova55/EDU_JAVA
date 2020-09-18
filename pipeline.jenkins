@@ -25,6 +25,7 @@ pipeline {
                     ) {
 					    sh "ls -la"
 						sh "whoami"
+						sh "mvn clean"
                         sh "./build.sh $REPO $USERNAME $PASSWORD"
                     }
             }
